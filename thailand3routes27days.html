@@ -9,16 +9,15 @@
       --bg:#f7f8fa; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --accent:#3b82f6; --accent2:#10b981; --accent3:#f59e0b; --border:#e5e7eb;
     }
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-    .wrap{max-width:1000px;margin:0 auto;padding:28px}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px}
     h1{font-size:28px;margin:0 0 12px}
     .subtitle{color:var(--muted);margin-bottom:24px}
     .grid{display:grid;grid-template-columns:1fr;gap:16px}
     @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
     .card h2{font-size:20px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
-    .pill{display:inline-block;padding:2px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-size:12px;margin-inline-start:8px}
     .list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-    .item{display:flex;gap:10px;align-items:flex-start}
+    .item{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
     .dot{width:10px;height:10px;border-radius:50%}
     .i1{background:var(--accent)} .i2{background:var(--accent2)} .i3{background:var(--accent3)}
     .title{font-weight:700}
@@ -26,14 +25,17 @@
     .footer{margin-top:22px;color:var(--muted);font-size:12px}
     .legend{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 18px}
     .legend span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
-    .tag{display:inline-block;background:#f3f4f6;border:1px solid var(--border);padding:2px 8px;border-radius:8px;margin:2px;font-size:12px}
+    .popover{position:fixed;display:none;max-width:320px;background:#111;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:9999}
+    .popover h3{margin:0 0 6px;font-size:15px}
+    .popover .small{font-size:12px;color:#d1d5db}
+    .popover ul{margin:6px 0 0 0;padding:0 0 0 18px}
+    .popover li{margin:2px 0}
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>מסלולי ירח דבש – תאילנד – 27 יום</h1>
-    <div class="subtitle">שלושה מסלולים דומים אך שונים – מותאם לזוג שאוהב תרבות, טבע, צילום וצ׳יל. בלי סוגריים. כל מסלול מתחיל בבנגקוק בלילה התאקלמות.</div>
-
+    <div class="subtitle">שלושה מסלולים שונים – מותאם לזוג שאוהב תרבות, טבע, צילום וצ׳יל.</div>
     <div class="legend">
       <span><span class="dot i1"></span> צפון ותרבות</span>
       <span><span class="dot i2"></span> חופים ואיים</span>
@@ -43,58 +45,110 @@
     <div class="grid">
       <!-- מסלול 1 -->
       <section class="card">
-        <h2>🌿 מסלול 1 – מאוזן: צפון + איים</h2>
+        <h2>🌿 מסלול 1 – מאוזן</h2>
         <ul class="list">
-          <li class="item"><span class="dot i3"></span><div><div class="title">בנגקוק – 1 לילה</div><div class="desc">לינה בעיר – התאקלמות רגועה אחרי טיסה</div></div></li>
-          <li class="item"><span class="dot i1"></span><div><div class="title">צ׳יאנג מאי – 5 לילות</div><div class="desc">מקדשים דוי סותפ ושוק לילה – קורס בישול – שמורת פילים אתית</div></div></li>
-          <li class="item"><span class="dot i1"></span><div><div class="title">פאי – 3 לילות</div><div class="desc">קניון פאי – מעיינות חמים – מפלים – בתי קפה בוהמיים</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">פוקט – 3 לילות</div><div class="desc">חופים קארון וקאטה – Big Buddha – שוק לילה – תצפיות שקיעה</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קאו לאק – 3 לילות</div><div class="desc">חופים שקטים – הפלגה לאיי סימילן – שנורקלינג</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קראבי או נאנג – 4 לילות</div><div class="desc">שייט לאיי ריילי – טיול ארבעת האיים – קיאקים בלגונות</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קוסמוי – 4 לילות</div><div class="desc">חוף צ׳אוונג או למאי – ספא זוגי – מפלי נא מואנג – הבודהה הגדול</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קופנגן – 4 לילות</div><div class="desc">חופים מבודדים בצפון האי – נקודות תצפית – יוגה – שקיעות</div></div></li>
-          <li class="item"><span class="dot i3"></span><div><div class="title">בנגקוק – 3 לילות</div><div class="desc">ארמון המלך – וואט ארון – צ׳טוצ׳ק בסופש – שייט ערב על הנהר</div></div></li>
+          <li class="item" data-place='בנגקוק'><span class="dot i3"></span><div><div class="title">בנגקוק – 1 לילה</div><div class="desc">התאקלמות רגועה אחרי טיסה</div></div></li>
+          <li class="item" data-place='צ׳יאנג מאי'><span class="dot i1"></span><div><div class="title">צ׳יאנג מאי – 5 לילות</div><div class="desc">מקדשים, שוק לילה, סדנת בישול, שמורת פילים</div></div></li>
+          <li class="item" data-place='פאי'><span class="dot i1"></span><div><div class="title">פאי – 3 לילות</div><div class="desc">קניון פאי, מעיינות חמים, מפלים</div></div></li>
+          <li class="item" data-place='פוקט'><span class="dot i2"></span><div><div class="title">פוקט – 3 לילות</div><div class="desc">חופים, Big Buddha, טיול יום</div></div></li>
+          <li class="item" data-place='קאו לאק'><span class="dot i2"></span><div><div class="title">קאו לאק – 3 לילות</div><div class="desc">חופים שקטים, הפלגה לסימילן</div></div></li>
+          <li class="item" data-place='קראבי'><span class="dot i2"></span><div><div class="title">קראבי – 4 לילות</div><div class="desc">חוף ריילי, שייט ארבעת האיים</div></div></li>
+          <li class="item" data-place='קוסמוי'><span class="dot i2"></span><div><div class="title">קוסמוי – 4 לילות</div><div class="desc">חוף צ׳אוונג, ספא זוגי</div></div></li>
+          <li class="item" data-place='קופנגן'><span class="dot i2"></span><div><div class="title">קופנגן – 4 לילות</div><div class="desc">חופים מבודדים, תצפיות</div></div></li>
+          <li class="item" data-place='בנגקוק'><span class="dot i3"></span><div><div class="title">בנגקוק – 3 לילות</div><div class="desc">ארמון המלך, צ׳טוצ׳ק, שייט ערב</div></div></li>
         </ul>
-        <div class="footer">סה״כ 27 יום – איזון בין תרבות, טבע וצ׳יל</div>
       </section>
 
       <!-- מסלול 2 -->
       <section class="card">
-        <h2>🏝 מסלול 2 – דגש איים ונופים</h2>
+        <h2>🏝 מסלול 2 – איים ונופים</h2>
         <ul class="list">
-          <li class="item"><span class="dot i3"></span><div><div class="title">בנגקוק – 1 לילה</div><div class="desc">התאקלמות – יציאה דרומה בבוקר</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">פוקט – 3 לילות</div><div class="desc">קארון וקאטה – שוק לילה – טיול יום אי ג׳יימס בונד</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קאו לאק – 3 לילות</div><div class="desc">רצועות חוף ריקות – הפלגה לאיי סימילן – צלילה קלה</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קראבי או נאנג – 5 לילות</div><div class="desc">חוף ריילי – טיול ארבעת האיים – לגונות נסתרות – מצוקים לצילום</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קו פיפי – 3 לילות</div><div class="desc">מאיה ביי בשעות שקטות – שנורקלינג – מסיבת חוף</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קוסמוי – 4 לילות</div><div class="desc">ספא זוגי – מקדש הבודהה – תצפיות שקיעה – בתי קפה על החוף</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קופנגן – 5 לילות</div><div class="desc">חופים שקטים בצפון – יוגה – נקודות תצפית – ירח מלא למעוניינים</div></div></li>
-          <li class="item"><span class="dot i3"></span><div><div class="title">בנגקוק – 3 לילות</div><div class="desc">מקדשים – אוכל רחוב – קניונים – ברי גג לצילום לילה</div></div></li>
+          <li class="item" data-place='בנגקוק'><span class="dot i3"></span><div><div class="title">בנגקוק – 1 לילה</div><div class="desc">התאקלמות</div></div></li>
+          <li class="item" data-place='פוקט'><span class="dot i2"></span><div><div class="title">פוקט – 3 לילות</div><div class="desc">חופים, שוק לילה, טיול יום</div></div></li>
+          <li class="item" data-place='קאו לאק'><span class="dot i2"></span><div><div class="title">קאו לאק – 3 לילות</div><div class="desc">חופים, שנורקלינג</div></div></li>
+          <li class="item" data-place='קראבי'><span class="dot i2"></span><div><div class="title">קראבי – 5 לילות</div><div class="desc">ריילי, טיול איים, קיאקים</div></div></li>
+          <li class="item" data-place='קו פיפי'><span class="dot i2"></span><div><div class="title">קו פיפי – 3 לילות</div><div class="desc">מאיה ביי, שנורקלינג</div></div></li>
+          <li class="item" data-place='קוסמוי'><span class="dot i2"></span><div><div class="title">קוסמוי – 4 לילות</div><div class="desc">ספא, חופים</div></div></li>
+          <li class="item" data-place='קופנגן'><span class="dot i2"></span><div><div class="title">קופנגן – 5 לילות</div><div class="desc">חופים שקטים, יוגה</div></div></li>
+          <li class="item" data-place='בנגקוק'><span class="dot i3"></span><div><div class="title">בנגקוק – 3 לילות</div><div class="desc">מקדשים, קניות</div></div></li>
         </ul>
-        <div class="footer">סה״כ 27 יום – מקסימום ים ונופים דרמטיים</div>
       </section>
 
       <!-- מסלול 3 -->
       <section class="card">
-        <h2>🏯 מסלול 3 – תרבות אקזוטית וצ׳יל</h2>
+        <h2>🏯 מסלול 3 – תרבות וצ׳יל</h2>
         <ul class="list">
-          <li class="item"><span class="dot i3"></span><div><div class="title">בנגקוק – 1 לילה</div><div class="desc">התאקלמות – טיסת בוקר לצפון</div></div></li>
-          <li class="item"><span class="dot i1"></span><div><div class="title">צ׳יאנג מאי – 6 לילות</div><div class="desc">דוי אינתנון – שמורת פילים – מקדשים – שוק לילה – סדנת בישול</div></div></li>
-          <li class="item"><span class="dot i1"></span><div><div class="title">פאי – 4 לילות</div><div class="desc">מעיינות חמים – מפלים – קניון פאי – צילום ערפילי בוקר – בתי קפה</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קוסמוי – 5 לילות</div><div class="desc">חופים רגועים – ספא – מקדש הבודהה – טיול יום לאי סמוך</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קופנגן – 5 לילות</div><div class="desc">חופים מבודדים בצפון – נקודות תצפית – סדנאות יוגה – שקיעות</div></div></li>
-          <li class="item"><span class="dot i2"></span><div><div class="title">קראבי או נאנג – 3 לילות</div><div class="desc">ריילי – טיול ארבעת האיים – מצוקים ונופי גיר</div></div></li>
-          <li class="item"><span class="dot i3"></span><div><div class="title">בנגקוק – 3 לילות</div><div class="desc">ארמון המלך – שוק פרחים – צ׳טוצ׳ק – אוכל רחוב וצילום סמטאות</div></div></li>
+          <li class="item" data-place='בנגקוק'><span class="dot i3"></span><div><div class="title">בנגקוק – 1 לילה</div><div class="desc">התאקלמות</div></div></li>
+          <li class="item" data-place='צ׳יאנג מאי'><span class="dot i1"></span><div><div class="title">צ׳יאנג מאי – 6 לילות</div><div class="desc">דוי אינתנון, סדנת בישול, פילים</div></div></li>
+          <li class="item" data-place='פאי'><span class="dot i1"></span><div><div class="title">פאי – 4 לילות</div><div class="desc">מעיינות, מפלים, קניון</div></div></li>
+          <li class="item" data-place='קוסמוי'><span class="dot i2"></span><div><div class="title">קוסמוי – 5 לילות</div><div class="desc">חופים, מקדש הבודהה</div></div></li>
+          <li class="item" data-place='קופנגן'><span class="dot i2"></span><div><div class="title">קופנגן – 5 לילות</div><div class="desc">חופים, תצפיות</div></div></li>
+          <li class="item" data-place='קראבי'><span class="dot i2"></span><div><div class="title">קראבי – 3 לילות</div><div class="desc">ריילי, טיולי איים</div></div></li>
+          <li class="item" data-place='בנגקוק'><span class="dot i3"></span><div><div class="title">בנגקוק – 3 לילות</div><div class="desc">שוק פרחים, צ׳טוצ׳ק</div></div></li>
         </ul>
-        <div class="footer">סה״כ 27 יום – תרבות עמוקה עם הרבה צ׳יל וצילום</div>
       </section>
     </div>
-
-    <div class="card" style="margin-top:16px">
-      <h2>🧭 טיפ בחירה מהירה</h2>
-      <div class="desc">רוצים גם צפון תרבותי וגם שני אזורי חופים שונים – בחרו מסלול 1. רוצים מקס חופים ואיים – מסלול 2. רוצים עומק תרבותי והרבה צ׳יל – מסלול 3.</div>
-      <div class="desc" style="margin-top:8px">אפשר להזיז לילות בין היעדים בקלות לפי טיסות פנימיות ומצב הרוח</div>
-    </div>
   </div>
+
+  <div class="popover" id="infoPop"></div>
+  <script>
+    const INFO = {
+      'בנגקוק': {
+        bullets:['ארמון המלך ומקדש וואט פו','שייט ערב על הצ׳או פראיה','שוק צ׳טוצ׳ק וקניוני יוקרה'],
+        day:'בוקר במקדשים, צהריים קניות או ספא, ערב שייט רומנטי.'
+      },
+      'צ׳יאנג מאי': {
+        bullets:['דוי סותפ ותצפיות','סדנת בישול','שמורת פילים אתית'],
+        day:'בוקר מקדשים, צהריים סדנת בישול, ערב שוק לילה.'
+      },
+      'פאי': {
+        bullets:['קניון פאי','מעיינות חמים','מפלים'],
+        day:'בוקר קפה בעמק, צהריים מעיינות, שקיעה בקניון.'
+      },
+      'פוקט': {
+        bullets:['חופי קארון וקאטה','Big Buddha','שייט לפאנג נגה'],
+        day:'בוקר חוף, צהריים תצפית, ערב שוק לילה.'
+      },
+      'קאו לאק': {
+        bullets:['חופים שקטים','שייט ושנורקלינג באיי סימילן'],
+        day:'בוקר חוף, הפלגת שנורקלינג, ערב מסעדה שקטה.'
+      },
+      'קראבי': {
+        bullets:['חוף ריילי','טיול ארבעת האיים','קיאקים בלגונות'],
+        day:'בוקר הפלגה, צהריים ריילי ביץ׳, ערב שוק לילה.'
+      },
+      'קו פיפי': {
+        bullets:['מאיה ביי','Snorkeling','תצפיות שקיעה'],
+        day:'בוקר שייט למאיה ביי, אחה׳׳צ שנורקלינג, שקיעה בתצפית.'
+      },
+      'קוסמוי': {
+        bullets:['מפלי נא מואנג','מקדש הבודהה','פישרמן׳ס וילג׳'],
+        day:'בוקר מפלים, צהריים ספא, ערב בפישרמן׳ס.'
+      },
+      'קופנגן': {
+        bullets:['חופים בצפון','יוגה','תצפיות שקיעה'],
+        day:'בוקר חוף, צהריים יוגה, ערב שקיעה.'
+      }
+    };
+
+    const pop=document.getElementById('infoPop');
+    function showPop(name,evt){
+      const i=INFO[name]; if(!i) return;
+      pop.innerHTML='<h3>'+name+'</h3><div class="small">איך נראה יום</div><div>'+i.day+'</div><div class="small" style="margin-top:6px">מה עושים</div><ul>'+i.bullets.map(b=>'<li>'+b+'</li>').join('')+'</ul>';
+      pop.style.display='block';
+      pop.style.left=(evt.clientX+14)+'px';
+      pop.style.top=(evt.clientY+14)+'px';
+    }
+    function movePop(evt){ if(pop.style.display==='block'){ pop.style.left=(evt.clientX+14)+'px'; pop.style.top=(evt.clientY+14)+'px'; } }
+    function hidePop(){ pop.style.display='none'; }
+
+    document.querySelectorAll('.item[data-place]').forEach(li=>{
+      const name=li.getAttribute('data-place');
+      li.addEventListener('mouseenter',(e)=>showPop(name,e));
+      li.addEventListener('mousemove',movePop);
+      li.addEventListener('mouseleave',hidePop);
+      li.addEventListener('click',(e)=>{if(pop.style.display==='block'){hidePop();}else{showPop(name,e);}});
+    });
+  </script>
 </body>
 </html>
