@@ -7,20 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f172a;
-      --card:#111827;
-      --muted:#94a3b8;
-      --ring:#22d3ee;
-      --brand:#38bdf8;
-      --ok:#10b981;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --ink:#e5e7eb;
+      --bg:#0f172a; --card:#111827; --muted:#94a3b8; --ring:#22d3ee;
+      --brand:#38bdf8; --ok:#10b981; --warn:#f59e0b; --danger:#ef4444; --ink:#e5e7eb;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:Heebo, Arial, sans-serif; background:linear-gradient(135deg,#0b1023,#0f172a 25%,#0b2740 75%,#0b1023);
+      margin:0; font-family:Heebo, Arial, sans-serif;
+      background:linear-gradient(135deg,#0b1023,#0f172a 25%,#0b2740 75%,#0b1023);
       color:var(--ink);
     }
     .container{max-width:1100px; margin:0 auto; padding:18px}
@@ -57,7 +51,6 @@
     .card{background:rgba(17,24,39,.7); border:1px solid #1f2937; border-radius:18px; padding:18px}
     .card h2{margin:0 0 8px 0}
     .meta{display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:14px}
-    .badges{display:flex; gap:6px; flex-wrap:wrap}
     .badge{border:1px solid #334155; padding:4px 8px; border-radius:999px; font-size:12px; color:#cbd5e1}
 
     .todo{margin-top:14px; display:grid; gap:10px}
@@ -65,8 +58,6 @@
     .todo-item input{accent-color:var(--ok); margin-top:2px}
 
     .actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
-
-    .kbd{border:1px solid #475569; padding:2px 6px; border-radius:6px; font-family:ui-monospace, Menlo, monospace; font-size:12px; color:#cbd5e1}
 
     .notice{margin-top:14px; background:#0b1f3b; border:1px dashed #334155; color:#cfe7ff; padding:12px; border-radius:12px}
 
@@ -123,86 +114,84 @@
   </main>
 
   <script>
-  // ===== נתוני המסלול (32 ימים מלאים) =====
+  // ===== נתוני המסלול (30 ימים מלאים) =====
   const itinerary = [
-    // ==== 32 ימים לפי הכרטיסים: 1.1.2026 → 1.2.2026 ====
-    // בנגקוק פתיחה
-    {day:1, zone:'בנגקוק', title:'המראה מת"א → לילה במטוס', location:'טיסה ל-BKK (LY83)', tip:'בדקו דרכון/וויזה, שמרו מסמכים גם אופליין. בקבוק ריק למילוי אחרי הבידוק.',
-      todo:['צ׳ק-אין בנתב"ג, המראה 22:45','הורדת סרטים/מוסיקה','מסכת עיניים, אטמים, בקבוק מים ריק']},
-    {day:2, zone:'בנגקוק', title:'נחיתה והתאקלמות', location:'בנגקוק', tip:'סים/איסים מיד אחרי הנחיתה ו-Grab רשמי. משכו מזומן בפעם אחת כדי לצמצם עמלות.',
+    // יום 1 – בנגקוק (נחיתה)
+    {day:1, zone:'בנגקוק', title:'נחיתה והתאקלמות', location:'בנגקוק', tip:'סים/איסים מיד אחרי הנחיתה; Grab רשמי; משכו מזומן בפעם אחת לצמצום עמלות.',
       todo:['נחיתה ~13:50, ביקורת גבולות','סים/איסים, משיכת מזומן','Grab למלון, מקלחת ומנוחה','הליכה רכה/קניון ממוזג','ארוחה קלה ושינה מוקדמת']},
-    {day:3, zone:'בנגקוק', title:'יום עיר – קלאסיקות לייט', location:'בנגקוק', tip:'הגיעו מוקדם למקדשים לחום נמוך וצילומים טובים. כיסוי כתפיים/ברכיים חובה.',
-      todo:['וואט פו/ארמון (לפי מצב)','שיט קצר על הנהר','Chinatown בערב']},
 
-    // צפון – צ׳יאנג מאי + פאי
-    {day:4, zone:'צפון', title:'טיסה לצ׳יאנג מאי', location:'צ׳יאנג מאי (עיר עתיקה)', tip:'בדקו אם הטיסה מדון מואנג/סובארנאבומי. להגיע ~שעתיים לפני.',
+    // יום 2 – טיסה לצ׳יאנג מאי
+    {day:2, zone:'צפון', title:'טיסה לצ׳יאנג מאי', location:'צ׳יאנג מאי (עיר עתיקה)', tip:'בדקו אם הטיסה מדון מואנג/סובארנאבומי. להגיע ~שעתיים לפני.',
       todo:['מונית לשדה, טיסה ~1:15','צ׳ק-אין בעיר העתיקה','סיבוב ראשון ומסאז׳']},
-    {day:5, zone:'צפון', title:'דוי סוטפ ותצפיות', location:'צ׳יאנג מאי', tip:'כתפיים/ברכיים מכוסות. צעיף דק בתיק פותר הכל.',
+
+    // צ׳יאנג מאי + פאי
+    {day:3, zone:'צפון', title:'דוי סוטפ ותצפיות', location:'צ׳יאנג מאי', tip:'כתפיים/ברכיים מכוסות. צעיף דק בתיק פותר הכל.',
       todo:['Doi Suthep מוקדם','קפה ותצפית','נהר פינג בערב']},
-    {day:6, zone:'צפון', title:'שיעור בישול ושווקים', location:'צ׳יאנג מאי', tip:'צלמו מתכונים ושמרו ב-Notes. שקית בד רב פעמית.',
+    {day:4, zone:'צפון', title:'שיעור בישול ושווקים', location:'צ׳יאנג מאי', tip:'צלמו מתכונים ושמרו ב-Notes. שקית בד רב-פעמית.',
       todo:['שיעור בישול','Warorot Market','Night Bazaar (אם פתוח)']},
-    {day:7, zone:'צפון', title:'מקדשים קטנים וקפה', location:'צ׳יאנג מאי', tip:'בתי קפה מעולים מפוזרים בסמטאות – לכו רגלי ותגלו פנינים.',
+    {day:5, zone:'צפון', title:'מקדשים קטנים וקפה', location:'צ׳יאנג מאי', tip:'בתי קפה מעולים מפוזרים בסמטאות – לכו רגלי ותגלו פנינים.',
       todo:['מקדשים בעיר העתיקה','בתי קפה/קישוטים לצילום','ערב רגוע']},
 
-    {day:8, zone:'צפון', title:'נסיעה לפאי – קניון שקיעה', location:'פאי (1/3)', tip:'לכביש לפאי – כדורי מחלת נסיעה אם צריך, עצירות קצרות.',
+    {day:6, zone:'צפון', title:'נסיעה לפאי – קניון שקיעה', location:'פאי (1/3)', tip:'לכביש לפאי – כדורי מחלת נסיעה אם צריך, עצירות קצרות.',
       todo:['מיניוואן ~3 ש׳','צ׳ק-אין לבונגלו','Pai Canyon לשקיעה']},
-    {day:9, zone:'צפון', title:'פאי – מים חמים ומפלים', location:'פאי (2/3)', tip:'למעיינות – להסיר תכשיטים; סנדלי מים למפלים.',
+    {day:7, zone:'צפון', title:'פאי – מים חמים ומפלים', location:'פאי (2/3)', tip:'למעיינות – להסיר תכשיטים; סנדלי מים למפלים.',
       todo:['Sai Ngam Hot Springs','Pam Bok Waterfall','שוק לילה']},
-    {day:10, zone:'צפון', title:'פאי איטית – זוגיות', location:'פאי (3/3)', tip:'שכירת קטנוע? צלמו את הכלי מכל הכיוונים ובדקו ביטוח.',
+    {day:8, zone:'צפון', title:'פאי איטית – זוגיות', location:'פאי (3/3)', tip:'שכירת קטנוע? צלמו את הכלי מכל הכיוונים ובדקו ביטוח.',
       todo:['קפה מול שדות','סיבוב כפרי קל','ארוחת ערב חמימה']},
-    {day:11, zone:'צפון', title:'חזרה לצ׳יאנג מאי – לינת מעבר', location:'צ׳יאנג מאי (מעבר)', tip:'כביסה wash & fold בבוקר תחזור בערב.',
+    {day:9, zone:'צפון', title:'חזרה לצ׳יאנג מאי – לינת מעבר', location:'צ׳יאנג מאי (מעבר)', tip:'כביסה wash & fold בבוקר תחזור בערב.',
       todo:['נסיעה חזרה','כביסה ומנוחה','אריזת קל לטיסה דרומה']},
 
-    // איים – סמוי קצר, קופנגן עיקר
-    {day:12, zone:'איים', title:'טיסה לקוסמוי – שקיעה ראשונה', location:'קו סמוי (1/4)', tip:'קרם ידידותי לשוניות. לאנג־ת׳ונג – להירשם יום קודם.',
+    // סמוי
+    {day:10, zone:'איים', title:'טיסה לקוסמוי – שקיעה ראשונה', location:'קו סמוי (1/4)', tip:'קרם ידידותי לשוניות. לאנג־ת׳ונג – להירשם יום קודם.',
       todo:['טיסה מצ׳יאנג מאי לסמוי','צ׳ק-אין לריזורט חוף','שקיעה על החוף']},
-    {day:13, zone:'איים', title:'סמוי – מפלים ומקדשים', location:'קו סמוי (2/4)', tip:'נעליים שאינן מחליקות למפלים.',
+    {day:11, zone:'איים', title:'סמוי – מפלים ומקדשים', location:'קו סמוי (2/4)', tip:'נעליים שאינן מחליקות למפלים.',
       todo:['Na Muang Waterfalls','Big Buddha בשעת זהב']},
-    {day:14, zone:'איים', title:'סמוי – אנג ת׳ונג / צ׳יל', location:'קו סמוי (3/4)', tip:'לשיט – dry bag, כובע, תרופות לים.',
+    {day:12, zone:'איים', title:'סמוי – אנג ת׳ונג / צ׳יל', location:'קו סמוי (3/4)', tip:'לשיט – Dry bag, כובע, תרופות לים.',
       todo:['שיט/סנורקל לאנג־ת׳ונג (מזג אוויר)','חלופה: יום צ׳יל']},
-    {day:15, zone:'איים', title:'סמוי – חופשי', location:'קו סמוי (4/4)', tip:'בחרו חוף בסיס וחזרו אליו – פחות לוגיסטיקה, יותר נחת.',
+    {day:13, zone:'איים', title:'סמוי – חופשי', location:'קו סמוי (4/4)', tip:'בחרו חוף בסיס וחזרו אליו – פחות לוגיסטיקה, יותר נחת.',
       todo:['ים/ספר/קפה','שקיעה נינוחה']},
 
-    {day:16, zone:'איים', title:'מעבורת לקופנגן – התמקמות', location:'קופנגן (1/7)', tip:'בדקו זמני גאות/שפל – משנה את החוף.',
+    // קופנגן (7 לילות)
+    {day:14, zone:'איים', title:'מעבורת לקופנגן – התמקמות', location:'קופנגן (1/7)', tip:'בדקו זמני גאות/שפל – משנה את החוף.',
       todo:['מעבורת קצרה','צ׳ק-אין במפרץ שקט','נקודת שקיעה']},
-    {day:17, zone:'איים', title:'קופנגן – חופים מערביים', location:'קופנגן (2/7)', tip:'Secret Beach נהדר לשקיעה עדינה.',
+    {day:15, zone:'איים', title:'קופנגן – חופים מערביים', location:'קופנגן (2/7)', tip:'Secret Beach נהדר לשקיעה עדינה.',
       todo:['Haad Yao/Secret Beach','קפה מול הים']},
-    {day:18, zone:'איים', title:'קופנגן – שביל ירוק וקפה', location:'קופנגן (3/7)', tip:'יתושים פעילים בערב – ספריי עם DEET.',
+    {day:16, zone:'איים', title:'קופנגן – שביל ירוק וקפה', location:'קופנגן (3/7)', tip:'יתושים פעילים בערב – ספריי עם DEET.',
       todo:['הליכה קלה ביער','בתי קפה שקטים','שוק לילה']},
-    {day:19, zone:'איים', title:'קופנגן – יום מים', location:'קופנגן (4/7)', tip:'בסנורקל – לא לגעת באלמוגים; מסכה אישית עדיפה.',
+    {day:17, zone:'איים', title:'קופנגן – יום מים', location:'קופנגן (4/7)', tip:'בסנורקל – לא לגעת באלמוגים; מסכה אישית עדיפה.',
       todo:['סנורקל/צלילה היכרות','ארוחת דגים פשוטה']},
-    {day:20, zone:'איים', title:'קופנגן – יוגה/סדנה', location:'קופנגן (5/7)', tip:'בקבוק רב-פעמי ונעלי הליכה קלות.',
+    {day:18, zone:'איים', title:'קופנגן – יוגה/סדנה', location:'קופנגן (5/7)', tip:'בקבוק רב-פעמי ונעלי הליכה קלות.',
       todo:['סדנת יוגה בוקר','זמן מנוחה','שקיעה Amsterdam Bar (אם מתאים)']},
-    {day:21, zone:'איים', title:'קופנגן – חופשי', location:'קופנגן (6/7)', tip:'גיבוי תמונות: ענן + כרטיס.',
+    {day:19, zone:'איים', title:'קופנגן – חופשי', location:'קופנגן (6/7)', tip:'גיבוי תמונות: ענן + כרטיס.',
       todo:['חוף אהוב חוזרים','קפה מועדף','קצת שופינג מקומי']},
-    {day:22, zone:'איים', title:'קופנגן – חופשי נוסף', location:'קופנגן (7/7)', tip:'לתכנן מעבר למחר – כרטיסים/זמנים מוכנים.',
+    {day:20, zone:'איים', title:'קופנגן – חופשי נוסף', location:'קופנגן (7/7)', tip:'לתכנן מעבר למחר – כרטיסים/זמנים מוכנים.',
       todo:['בוקר ים רגוע','אריזת מעבר']},
 
-    // ריילי/קראבי
-    {day:23, zone:'ריילי/קראבי', title:'מעבר ליבשה → ריילי', location:'ריילי (1/4)', tip:'השאירו מרווחי זמן במעברים; כרטיסים דיגיטליים זמינים.',
+    // ריילי/קראבי (4 לילות)
+    {day:21, zone:'ריילי/קראבי', title:'מעבר ליבשה → ריילי', location:'ריילי (1/4)', tip:'השאירו מרווחי זמן במעברים; כרטיסים דיגיטליים זמינים.',
       todo:['מעבורת/יבשה לסורט׳אני/דונסאק','רכב ל-Ao Nang + Longtail לריילי','פרא ננג לשקיעה']},
-    {day:24, zone:'ריילי/קראבי', title:'ריילי – קיאק קל', location:'ריילי (2/4)', tip:'מרחו קרם הגנה מראש; לאוזניים רגישות – אטמים.',
+    {day:22, zone:'ריילי/קראבי', title:'ריילי – קיאק קל', location:'ריילי (2/4)', tip:'מרחו קרם הגנה מראש; לאוזניים רגישות – אטמים.',
       todo:['קיאק לאורך הצוקים','מנוחה בחוף']},
-    {day:25, zone:'ריילי/קראבי', title:'סיור “4 איים”', location:'ריילי (3/4)', tip:'מזומן קטן לדמי כניסה ומגבת מיקרופייבר.',
+    {day:23, zone:'ריילי/קראבי', title:'סיור “4 איים”', location:'ריילי (3/4)', tip:'מזומן קטן לדמי כניסה ומגבת מיקרופייבר.',
       todo:['שיט Longtail (אם הים נוח)','סנורקל קצר','ארוחת דגים']},
-    {day:26, zone:'ריילי/קראבי', title:'ריילי – נשימה', location:'ריילי (4/4)', tip:'הליכה לנקודת תצפית רק אם היבשות יבשות ולא מחליקות.',
+    {day:24, zone:'ריילי/קראבי', title:'ריילי – נשימה', location:'ריילי (4/4)', tip:'הליכה לנקודת תצפית רק אם היבשות יבשות ולא מחליקות.',
       todo:['הליכה קלה/תצפית','ספא/מסאז׳','אריזת מעבר לבנגקוק']},
 
-    // בנגקוק סיום
-    {day:27, zone:'בנגקוק', title:'טיסה לבנגקוק – התמקמות', location:'בנגקוק (1/5)', tip:'ב-BKK השתמשו ב-BTS/MRT להימנע מפקקים. שקלו Rabbit Card.',
+    // בנגקוק (5 ימים)
+    {day:25, zone:'בנגקוק', title:'טיסה לבנגקוק – התמקמות', location:'בנגקוק (1/5)', tip:'ב-BTS/MRT תחסכו פקקים. שקלו Rabbit Card.',
       todo:['טיסה/נסיעה מהדרום לבנגקוק','צ׳ק-אין במרכז','שיט קצר על הנהר']},
-    {day:28, zone:'בנגקוק', title:'קלאסיקות – ארמון/וואט פו', location:'בנגקוק (2/5)', tip:'זהרו ממי שאומר "הארמון סגור". הגיעו מוקדם.',
+    {day:26, zone:'בנגקוק', title:'קלאסיקות – ארמון/וואט פו', location:'בנגקוק (2/5)', tip:'זהרו ממי שאומר "הארמון סגור". להגיע מוקדם.',
       todo:['Grand Palace','Wat Pho','שקיעה ב-Rooftop']},
-    {day:29, zone:'בנגקוק', title:'מודרני וקולינריה', location:'בנגקוק (3/5)', tip:'צ׳יינה טאון – להגיע מוקדם/מאוחר לחמוק מעומס וחום.',
+    {day:27, zone:'בנגקוק', title:'מודרני וקולינריה', location:'בנגקוק (3/5)', tip:'צ׳יינה טאון – להגיע מוקדם/מאוחר לחמוק מעומס וחום.',
       todo:['ICONSIAM/בית ג׳ים תומפסון','Chinatown – אוכל רחוב','מסאז׳ אחרון']},
-    {day:30, zone:'בנגקוק', title:'גיחה – איותאיה/שוק צף', location:'בנגקוק (4/5)', tip:'בחרו אופניים/טוק-טוק לפי מזג אוויר. כובע ומים.',
+    {day:28, zone:'בנגקוק', title:'גיחה – איותאיה/שוק צף', location:'בנגקוק (4/5)', tip:'בחרו אופניים/טוק-טוק לפי מזג אוויר. כובע ומים.',
       todo:['איותאיה או שוק צף','חזרה לשקיעה על הנהר']},
-    {day:31, zone:'בנגקוק', title:'יום חופשי אחרון', location:'בנגקוק (5/5)', tip:'VAT Refund אפשרי מעל סף – שמרו קבלות ודרכון.',
+    {day:29, zone:'בנגקוק', title:'יום חופשי אחרון', location:'בנגקוק (5/5)', tip:'VAT Refund אפשרי מעל סף – שמרו קבלות ודרכון.',
       todo:['קניות אחרונות','גיבוי תמונות','סידור תיקים לטיסה']},
 
     // חזור
-    {day:32, zone:'טיסה חזרה', title:'BKK → TLV (LY84)', location:'טיסה חזרה לישראל', tip:'בדקו משקלים מראש. סעו לשדה מוקדם – יציאה 16:30.',
-      todo:['צ׳ק-אאוט ונסיעה לשדה','המראה 16:30, נחיתה 22:45','הודעות הגעתי הביתה :)']},
+    {day:30, zone:'טיסה חזרה', title:'BKK → TLV (LY84)', location:'טיסה חזרה לישראל', tip:'בדקו משקלים מראש. לשדה לצאת מוקדם (המראה 16:30).',
+      todo:['צ׳ק-אאוט ונסיעה לשדה','המראה 16:30, נחיתה 22:45','הודעות הגעתי הביתה :)']}
   ];
 
   // ===== אזורים ומיפוי תאריכים =====
@@ -231,14 +220,25 @@
   let activeZoneFilter = null; // null = הכל
 
   // ===== עזרי תצוגה =====
-  function highlight(text, q){ if(!q) return text; const esc=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); return text.replace(new RegExp(esc,'gi'), m=>`<mark style="background:#a7f3d0;color:#0c4a6e;border-radius:4px;padding:0 2px">${m}</mark>`); }
-
-  function renderJump(){
-    jumpEl.innerHTML = itinerary.map(d=>`<option value="${d.day}">יום ${d.day} • ${fmt(dayToDate(d.day))} • ${d.location}</option>`).join('');
-    jumpEl.value = String(current);
+  function highlight(text, q){
+    if(!q) return text;
+    const esc = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    return text.replace(new RegExp(esc,'gi'), m=>`<mark style="background:#a7f3d0;color:#0c4a6e;border-radius:4px;padding:0 2px">${m}</mark>`);
   }
 
-  function dayProgress(day){ const d=itinerary.find(x=>x.day===day); const s=loadDayState(day); const done=(d.todo||[]).filter((_,i)=>s[i]).length; return {done,total:(d.todo||[]).length}; }
+  function renderJump(){
+    jumpEl.innerHTML = itinerary
+      .map(d=>`<option value="${d.day}">יום ${d.day} • ${fmt(dayToDate(d.day))} • ${d.location}</option>`)
+      .join('');
+    jumpEl.value = String(current); // תמיד מציג את כל הימים
+  }
+
+  function dayProgress(day){
+    const d = itinerary.find(x=>x.day===day);
+    const s = loadDayState(day);
+    const done = (d.todo||[]).filter((_,i)=>s[i]).length;
+    return {done, total:(d.todo||[]).length};
+  }
 
   function renderSidebar(){
     const list = itinerary.filter(d=>!activeZoneFilter || d.zone===activeZoneFilter);
@@ -254,10 +254,16 @@
     }).join('');
   }
 
-  function renderZones(){ zonesEl.innerHTML = zonesOrder.map(z=>`<div class="chip ${z===activeZoneFilter?'active':''}" data-zone="${z}">${z}</div>`).join(''); }
+  function renderZones(){
+    zonesEl.innerHTML = zonesOrder.map(z=>{
+      const active = z===activeZoneFilter ? 'active':'';
+      return `<div class="chip ${active}" data-zone="${z}">${z}</div>`;
+    }).join('');
+  }
 
   function renderDay(){
-    const d = itinerary.find(x=>x.day===current); if(!d) return;
+    const d = itinerary.find(x=>x.day===current);
+    if(!d) return;
     const state = loadDayState(d.day);
     const list = (d.todo||[]).map((t,i)=>{
       const checked = state[i] ? 'checked' : '';
@@ -300,59 +306,84 @@
   }
 
   document.addEventListener('click', (e)=>{
-    const dayBtn = e.target.closest('.day-btn'); if(dayBtn){ goTo(Number(dayBtn.dataset.day)); return; }
+    const dayBtn = e.target.closest('.day-btn');
+    if(dayBtn){ goTo(Number(dayBtn.dataset.day)); return; }
+
     const chip = e.target.closest('.chip');
     if(chip){
-      const z = chip.dataset.zone; activeZoneFilter = (activeZoneFilter===z)? null : z; renderZones(); renderSidebar();
+      const z = chip.dataset.zone;
+      activeZoneFilter = (activeZoneFilter===z)? null : z;
+      renderZones(); renderSidebar();
       const list = itinerary.filter(d=>!activeZoneFilter || d.zone===activeZoneFilter);
       if(!list.find(d=>d.day===current) && list.length){ goTo(list[0].day); }
       return;
     }
+
     if(e.target.id==='markAll'){
-      const d = itinerary.find(x=>x.day===current); const state={}; (d.todo||[]).forEach((_,i)=>state[i]=true); saveDayState(current,state); renderDay(); return;
+      const d = itinerary.find(x=>x.day===current);
+      const state={}; (d.todo||[]).forEach((_,i)=>state[i]=true);
+      saveDayState(current,state); renderDay(); return;
     }
     if(e.target.id==='clearAll'){ saveDayState(current,{}); renderDay(); return; }
     if(e.target.id==='copyDay'){
       const d = itinerary.find(x=>x.day===current);
       const text = `יום ${d.day} – ${fmt(dayToDate(d.day))} – ${d.title}\nמיקום: ${d.location}\nמשימות:\n- ` + (d.todo||[]).join('\n- ');
-      navigator.clipboard.writeText(text); e.target.textContent='הועתק!'; setTimeout(()=>e.target.textContent='העתק את היום ללוח',1200); return;
+      navigator.clipboard.writeText(text);
+      e.target.textContent='הועתק!'; setTimeout(()=>e.target.textContent='העתק את היום ללוח',1200);
+      return;
     }
     if(e.target.id==='printBtn'){ window.print(); return; }
     if(e.target.id==='exportBtn'){
       const data={}; itinerary.forEach(d=>{ data[d.day]=loadDayState(d.day) });
       const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
-      const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='honeymoon_todos.json'; a.click(); return;
+      const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='honeymoon_todos.json'; a.click();
+      return;
     }
     if(e.target.id==='importBtn'){ document.getElementById('importFile').click(); return; }
     if(e.target.id==='testBtn'){ document.getElementById('testsPanel').style.display='block'; runTests(); return; }
   });
 
   document.getElementById('importFile').addEventListener('change', (ev)=>{
-    const f = ev.target.files[0]; if(!f) return; const r = new FileReader();
-    r.onload = ()=>{ try{ const data = JSON.parse(r.result); Object.keys(data||{}).forEach(k=>{ localStorage.setItem(keyFor(k), JSON.stringify(data[k]||{})); }); renderSidebar(); renderDay(); }catch(err){ alert('קובץ לא תקין'); } };
+    const f = ev.target.files[0]; if(!f) return;
+    const r = new FileReader();
+    r.onload = ()=>{
+      try{
+        const data = JSON.parse(r.result);
+        Object.keys(data||{}).forEach(k=>{
+          localStorage.setItem(keyFor(k), JSON.stringify(data[k]||{}));
+        });
+        renderSidebar(); renderDay();
+      }catch(err){ alert('קובץ לא תקין'); }
+    };
     r.readAsText(f);
   });
 
-  // כפתורי דפדוף – מכבדים מסנן פעיל
+  // דפדוף קודם/הבא – מכבד מסנן פעיל
   prevBtn.addEventListener('click', ()=>{
     const list = itinerary.filter(d=>!activeZoneFilter || d.zone===activeZoneFilter);
-    const ids = list.map(d=>d.day); const idx = ids.indexOf(current); if(idx>0) goTo(ids[idx-1]);
+    const ids = list.map(d=>d.day); const idx = ids.indexOf(current);
+    if(idx>0) goTo(ids[idx-1]);
   });
   nextBtn.addEventListener('click', ()=>{
     const list = itinerary.filter(d=>!activeZoneFilter || d.zone===activeZoneFilter);
-    const ids = list.map(d=>d.day); const idx = ids.indexOf(current); if(idx<ids.length-1) goTo(ids[idx+1]);
+    const ids = list.map(d=>d.day); const idx = ids.indexOf(current);
+    if(idx<ids.length-1) goTo(ids[idx+1]);
   });
   jumpEl.addEventListener('change', ()=> goTo(Number(jumpEl.value)));
   searchEl.addEventListener('input', ()=> renderDay());
 
   document.addEventListener('change', (e)=>{
     if(e.target.matches('.todo-item input[type="checkbox"]')){
-      const idx = Number(e.target.dataset.idx); const st = loadDayState(current); st[idx]=e.target.checked; saveDayState(current, st); renderDay();
+      const idx = Number(e.target.dataset.idx);
+      const st = loadDayState(current); st[idx]=e.target.checked; saveDayState(current, st);
+      renderDay();
     }
   });
 
   document.getElementById('toggleSection').addEventListener('click', ()=>{
-    const z = itinerary.find(d=>d.day===current)?.zone; activeZoneFilter = (activeZoneFilter===z)? null : z; renderZones(); renderSidebar();
+    const z = itinerary.find(d=>d.day===current)?.zone;
+    activeZoneFilter = (activeZoneFilter===z)? null : z;
+    renderZones(); renderSidebar();
   });
 
   // ===== בדיקות (Test Cases) =====
@@ -360,30 +391,37 @@
     const out = [];
     function ok(name, cond){ out.push(`${cond?'✔':'✖'} ${name}`); if(!cond) throw new Error('Test failed: '+name); }
     try{
-      // מבנה בסיסי
-      ok('אורך המסלול 32 ימים', itinerary.length===32);
-      ok('ימים עוקבים 1..32', itinerary.every((d,i)=>d.day===i+1));
+      // בסיס
+      ok('אורך המסלול 30 ימים', itinerary.length===30);
+      ok('ימים עוקבים 1..30', itinerary.every((d,i)=>d.day===i+1));
       ok('לכל יום יש כותרת וטודו', itinerary.every(d=>typeof d.title==='string' && Array.isArray(d.todo)));
 
       // תאריכים
       ok('יום 1 הוא 01.01.2026', fmt(dayToDate(1))==='01.01.2026');
-      ok('יום 32 הוא 01.02.2026', fmt(dayToDate(32))==='01.02.2026');
+      ok('יום 30 הוא 30.01.2026', fmt(dayToDate(30))==='30.01.2026');
 
       // highlight
-      const h = highlight('שלום עולם','עול'); ok('highlight מחזיר mark', /<mark/.test(h));
+      const h = highlight('שלום עולם','עול');
+      ok('highlight מחזיר mark', /<mark/.test(h));
 
       // רינדור ו-tip
-      const backup = localStorage.getItem(keyFor(1)); saveDayState(1, {}); current=1; renderDay();
-      const tipEl = document.getElementById('tipSlot'); ok('קיים tipSlot עם טקסט', !!(tipEl && tipEl.textContent && tipEl.textContent.length>0));
+      const backup = localStorage.getItem(keyFor(1));
+      saveDayState(1, {});
+      current=1; renderDay();
+      const tipEl = document.getElementById('tipSlot');
+      ok('קיים tipSlot עם טקסט', !!(tipEl && tipEl.textContent && tipEl.textContent.length>0));
       if(backup===null) localStorage.removeItem(keyFor(1)); else localStorage.setItem(keyFor(1), backup);
 
-      // מסנן אזור
-      activeZoneFilter=null; renderZones(); renderSidebar(); const before = document.querySelectorAll('.day-btn').length;
-      activeZoneFilter='איים'; renderZones(); renderSidebar(); const after = document.querySelectorAll('.day-btn').length;
+      // מסנן אזור מצמצם
+      activeZoneFilter=null; renderZones(); renderSidebar();
+      const before = document.querySelectorAll('.day-btn').length;
+      activeZoneFilter='איים'; renderZones(); renderSidebar();
+      const after = document.querySelectorAll('.day-btn').length;
       ok('מסנן אזור מצמצם רשימה', after>0 && after<before);
 
       // markAll/clearAll
-      current=2; renderDay(); document.getElementById('markAll').click();
+      current=2; renderDay();
+      document.getElementById('markAll').click();
       const checks = [...document.querySelectorAll('#todo input[type="checkbox"]')];
       ok('markAll מסמן הכל', checks.length>0 && checks.every(c=>c.checked));
       document.getElementById('clearAll').click();
@@ -394,7 +432,12 @@
       ok('ייצוא מכיל את יום 3 עם ערך', !!exportData[3] && exportData[3][0]===true);
 
       document.getElementById('testsOut').textContent = out.join('\n');
-    }catch(e){ out.push('\nשגיאה: '+e.message); document.getElementById('testsOut').textContent = out.join('\n'); console.error(e); }
+      console.log(out.join('\n'));
+    }catch(e){
+      out.push('\nשגיאה: '+e.message);
+      document.getElementById('testsOut').textContent = out.join('\n');
+      console.error(e);
+    }
   }
 
   // ===== הפעלה ראשונית =====
