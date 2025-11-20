@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ירח דבש תאילנד - שחר ואלינה</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        --bg: #f3f4f6;
+        --card-bg: #ffffff;
+        --primary: #2563eb;
+        --primary-soft: #dbeafe;
+        --accent: #f97316;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --radius-lg: 18px;
+        --radius-xl: 26px;
+        --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: radial-gradient(
+          circle at top,
+          #e0f2fe 0%,
+          #f9fafb 52%,
+          #e5e7eb 100%
+        );
+        color: var(--text);
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(16px);
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.94),
+          rgba(14, 165, 233, 0.92)
+        );
+        color: white;
+        padding: 18px 4vw 14px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.32);
+      }
+
+      .header-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .title-block h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+        letter-spacing: 0.03em;
+      }
+
+      .title-block p {
+        margin: 4px 0 0;
+        font-size: 0.95rem;
+        opacity: 0.92;
+      }
+
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 10px;
+        background: rgba(15, 23, 42, 0.16);
+        border-radius: 999px;
+        margin-top: 6px;
+        font-size: 0.82rem;
+      }
+
+      .tagline-dot {
+        width: 7px;
+        height: 7px;
+        background: #22c55e;
+        border-radius: 999px;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
+      }
+
+      .nav-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav-buttons button {
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(15, 23, 42, 0.12);
+        color: white;
+        padding: 7px 14px;
+        font-size: 0.86rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: transform 0.12s ease, box-shadow 0.12s ease,
+          background 0.12s ease;
+      }
+
+      .nav-buttons button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.32);
+        background: rgba(15, 23, 42, 0.28);
+      }
+
+      .nav-buttons button.secondary {
+        background: transparent;
+        border-style: dashed;
+      }
+
+      main {
+        max-width: 1080px;
+        margin: 22px auto 40px;
+        padding: 0 4vw 24px;
+      }
+
+      .intro-card {
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+        padding: 20px 20px 18px;
+        display: grid;
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+        gap: 16px;
+        margin-bottom: 26px;
+        border: 1px solid rgba(148, 163, 184, 0.5);
+      }
+
+      .intro-card h2 {
+        margin: 0 0 10px;
+        font-size: 1.22rem;
+      }
+
+      .intro-card p {
+        margin: 0 0 6px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+
+      .chip {
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+        white-space: nowrap;
+      }
+
+      .summary-box {
+        background: radial-gradient(circle at top left, #fef3c7, #fff7ed);
+        border-radius: var(--radius-lg);
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border: 1px solid rgba(249, 115, 22, 0.25);
+      }
+
+      .summary-box h3 {
+        margin: 0 0 6px;
+        font-size: 0.96rem;
+      }
+
+      .summary-box ul {
+        margin: 0;
+        padding-right: 18px;
+      }
+
+      .summary-box li {
+        margin-bottom: 4px;
+      }
+
+      .week-section {
+        margin-bottom: 28px;
+      }
+
+      .week-header {
+        margin-bottom: 10px;
+      }
+
+      .week-title {
+        margin: 0;
+        font-size: 1.26rem;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .week-title span {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .week-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+
+      .week-pill {
+        font-size: 0.8rem;
+        padding: 3px 9px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--muted);
+      }
+
+      .days-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      @media (min-width: 720px) {
+        .days-grid {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+      }
+
+      details.day-card {
+        background: rgba(255, 255, 255, 0.96);
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+        overflow: hidden;
+        transition: transform 0.14s ease, box-shadow 0.14s ease,
+          border-color 0.14s ease;
+      }
+
+      details.day-card[open] {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
+        border-color: rgba(37, 99, 235, 0.55);
+      }
+
+      .day-card summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 12px 13px 11px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .day-main {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .day-line {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+      }
+
+      .day-number {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+        background: var(--primary-soft);
+        padding: 2px 7px;
+        border-radius: 999px;
+      }
+
+      .day-location {
+        font-size: 0.96rem;
+        font-weight: 600;
+      }
+
+      .day-tagline {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .chevron {
+        font-size: 1.1rem;
+        color: var(--muted);
+        transition: transform 0.16s ease;
+      }
+
+      details[open] .chevron {
+        transform: rotate(90deg);
+      }
+
+      .day-body {
+        border-top: 1px solid var(--border);
+        padding: 8px 14px 12px;
+        font-size: 0.9rem;
+        background: linear-gradient(
+          135deg,
+          rgba(239, 246, 255, 0.9),
+          rgba(248, 250, 252, 0.96)
+        );
+      }
+
+      .day-body ul {
+        margin: 6px 0 0;
+        padding-right: 18px;
+      }
+
+      .day-body li {
+        margin-bottom: 4px;
+      }
+
+      .hotel-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.8rem;
+        color: #1d4ed8;
+        background: #eff6ff;
+        border-radius: 999px;
+        padding: 3px 8px;
+      }
+
+      .hotel-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #1d4ed8;
+        opacity: 0.9;
+      }
+
+      .controls-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 0 0 18px;
+      }
+
+      .controls-row button {
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.92);
+        padding: 6px 12px;
+        font-size: 0.82rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.14s ease, box-shadow 0.14s ease,
+          transform 0.14s ease;
+      }
+
+      .controls-row button:hover {
+        background: #eff6ff;
+        box-shadow: 0 10px 20px rgba(148, 163, 184, 0.45);
+        transform: translateY(-1px);
+      }
+
+      .controls-row button span.icon {
+        font-size: 1rem;
+      }
+
+      footer {
+        max-width: 1080px;
+        margin: 0 auto 18px;
+        padding: 0 4vw;
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="title-block">
+          <h1>ירח הדבש של שחר ואלינה בתאילנד</h1>
+          <p>28 ימים של שקט, חוויות וטבע – בינואר</p>
+          <div class="tagline">
+            <div class="tagline-dot"></div>
+            <span>הכל מתוכנן, אתם רק מגיעים ונהנים</span>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button onclick="document.getElementById('week1').scrollIntoView()">
+            שבוע 1 · צ׳יאנג מאי
+          </button>
+          <button onclick="document.getElementById('week2').scrollIntoView()">
+            שבוע 2 · פוקט וקאו לק
+          </button>
+          <button onclick="document.getElementById('week3').scrollIntoView()">
+            שבוע 3 · קראבי וקוסמוי
+          </button>
+          <button onclick="document.getElementById('week4').scrollIntoView()">
+            שבוע 4 · קופנגן ובנגקוק
+          </button>
+          <button
+            class="secondary"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          >
+            לראש העמוד ↑
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Intro card -->
+      <section class="intro-card">
+        <div>
+          <h2>איך לקרוא את המסלול</h2>
+          <p>
+            כל יום מוצג ככרטיס אינטראקטיבי. לוחצים על היום ונפתחות כל הפעילויות,
+            ההמלצות והאווירה. המסלול בנוי בקצב של ירח דבש – שילוב של חוויות,
+            טבע, אוכל טוב והרבה זמן שבו אתם פשוט ביחד.
+          </p>
+          <div class="chips">
+            <div class="chip">צ׳יאנג מאי</div>
+            <div class="chip">פוקט</div>
+            <div class="chip">קאו לק</div>
+            <div class="chip">קראבי</div>
+            <div class="chip">קוסמוי</div>
+            <div class="chip">קופנגן</div>
+            <div class="chip">בנגקוק</div>
+          </div>
+        </div>
+
+        <div class="summary-box">
+          <h3>תמונה כללית של הירח דבש</h3>
+          <ul>
+            <li>שבוע 1 – צ׳יאנג מאי: טבע, פילים אתי וקורס בישול</li>
+            <li>שבוע 2 – פוקט וקאו לק: ים, איים ושנורקלינג</li>
+            <li>שבוע 3 – קראבי וקוסמוי: חופים, טיולי יום ובריכה</li>
+            <li>שבוע 4 – קופנגן ובנגקוק: רוגע באי וסיום עירוני</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="controls-row">
+        <button id="expandAll">
+          <span class="icon">＋</span>
+          לפתוח את כל הימים
+        </button>
+        <button id="collapseAll">
+          <span class="icon">−</span>
+          לסגור את כל הימים
+        </button>
+      </div>
+
+      <!-- Week 1 -->
+      <section id="week1" class="week-section">
+        <div class="week-header">
+          <h2 class="week-title">
+            שבוע 1 · צ׳יאנג מאי
+            <span>התאקלמות, טבע, פילים וקורס בישול</span>
+          </h2>
+          <div class="week-pills">
+            <div class="week-pill">בסיס: Shangri-La Chiang Mai</div>
+            <div class="week-pill">פחות נסיעות, יותר שקט</div>
+          </div>
+        </div>
+
+        <div class="days-grid">
+          <!-- Day 1 -->
+          <details class="day-card" open>
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 1</span>
+                  <span class="day-location"
+                    >נחיתה בצ׳יאנג מאי והגעה למלון</span
+                  >
+                </div>
+                <div class="day-tagline">התאקלמות, נשימה ראשונה ושקט</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Shangri-La Chiang Mai
+              </div>
+              <ul>
+                <li>טיסה מבנגקוק לצ׳יאנג מאי והגעה למלון</li>
+                <li>צ׳ק אין, מקלחת, מנוחה ובריכה</li>
+                <li>הליכה קצרה לשוק לילה קרוב לארוחת ערב קלה</li>
+                <li>חזרה מוקדם למלון כדי להוריד מהג׳ט לג</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 2 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 2</span>
+                  <span class="day-location">היכרות עם העיר ומקדשים</span>
+                </div>
+                <div class="day-tagline">עיר עתיקה, מקדשים ומסאז׳ ראשון</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר רגוע וארוחת בוקר במלון</li>
+                <li>ביקור במקדש Wat Phra Singh ובאזור העיר העתיקה</li>
+                <li>קפה או מיץ טרי באחד מבתי הקפה המקומיים</li>
+                <li>אחר הצהריים – מסאז׳ זוגי ראשון בספא אמין</li>
+                <li>ערב: ארוחה במסעדה תאילנדית מקומית וחזרה למלון</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 3 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 3</span>
+                  <span class="day-location">קורס בישול תאילנדי</span>
+                </div>
+                <div class="day-tagline">שוק מקומי, לימוד מנות ואכילה טובה</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>איסוף מהמלון לקורס בישול איכותי</li>
+                <li>ביקור בשוק מקומי ולמידה על חומרי הגלם</li>
+                <li>בישול 4 עד 6 מנות קלאסיות כולל Khao Soi</li>
+                <li>אוכל טוב, תמונות וצחוקים</li>
+                <li>אחר הצהריים מנוחה במלון</li>
+                <li>בערב – אפשרות ליציאה לקניון Maya או שוק לילה נוסף</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 4 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 4</span>
+                  <span class="day-location">חוות פילים אתית</span>
+                </div>
+                <div class="day-tagline">
+                  יום מרגש עם פילים בלי רכיבה ובלי מופעים
+                </div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>נסיעה לחווה אתית כגון Elephant Nature Park או דומה</li>
+                <li>מפגש עם פילים שניצלו, האכלה ולמידה על הסיפורים שלהם</li>
+                <li>הליכה לצידם, תצפית על ההתנהגות שלהם בסביבה טבעית</li>
+                <li>חזרה לצ׳יאנג מאי בשעות אחר הצהריים</li>
+                <li>ארוחת ערב רגועה ליד המלון ומנוחה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 5 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 5</span>
+                  <span class="day-location">דוי סוטפ ומפלים</span>
+                </div>
+                <div class="day-tagline">
+                  תצפית על העיר, אוויר הרים וטיול קל
+                </div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>
+                  ביקור במקדש Wat Phra That Doi Suthep עם נוף על כל צ׳יאנג מאי
+                </li>
+                <li>הליכה קצרה בשביל Monk’s Trail למי שבא לו</li>
+                <li>עצירה ליד מפלי Huay Kaew או מפל קרוב אחר</li>
+                <li>חזרה למלון אחר הצהריים לבריכה ומנוחה</li>
+                <li>ערב: שוק לילה או מסעדה רגועה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 6 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 6</span>
+                  <span class="day-location"
+                    >דוי אינתנון – הפארק הלאומי הגבוה</span
+                  >
+                </div>
+                <div class="day-tagline">נופים, מפלים ואוויר קריר</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>טיול יום מאורגן לפארק הלאומי Doi Inthanon</li>
+                <li>ביקור בשתי הפגודות המפורסמות ונקודות תצפית</li>
+                <li>עצירה במפל או שניים בדרך</li>
+                <li>קצת הליכה קלה בשבילי טבע</li>
+                <li>חזרה למלון בערב וארוחה שקטה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 7 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 7</span>
+                  <span class="day-location">יום התאוששות לפני מעבר לים</span>
+                </div>
+                <div class="day-tagline">בריכה, מסאז׳ ושוק אחרון</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר בבריכה ובמלון בלי לחץ</li>
+                <li>מסאז׳ זוגי נוסף למי שמרגיש שזה לא מספיק</li>
+                <li>קפה ומאפה בעיר העתיקה או במרכז מודרני</li>
+                <li>שוק אחרון לקניות קטנות</li>
+                <li>התארגנות לקראת טיסה לפוקט ביום הבא</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Week 2 -->
+      <section id="week2" class="week-section">
+        <div class="week-header">
+          <h2 class="week-title">
+            שבוע 2 · פוקט וקאו לק
+            <span>ים, איים, שנורקלינג והרבה רוגע</span>
+          </h2>
+          <div class="week-pills">
+            <div class="week-pill">Four Points by Sheraton Patong</div>
+            <div class="week-pill">Le Meridien Khao Lak</div>
+          </div>
+        </div>
+
+        <div class="days-grid">
+          <!-- Day 8 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 8</span>
+                  <span class="day-location">טיסה לפוקט והגעה למלון</span>
+                </div>
+                <div class="day-tagline">מעבר מהצפון לים הדרומי</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Four Points by Sheraton Patong
+              </div>
+              <ul>
+                <li>טיסה מצ׳יאנג מאי לפוקט</li>
+                <li>צ׳ק אין במלון ומנוחה קלה</li>
+                <li>הליכה לחוף פטונג לראות את השקיעה</li>
+                <li>ארוחת ערב במסעדת דגים או תאילנדי ליד הים</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 9 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 9</span>
+                  <span class="day-location">יום חוף ורוגע</span>
+                </div>
+                <div class="day-tagline">בריכה, חוף, מסאז׳ וקצת קניון</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר בחוף פטונג או בבריכה של המלון</li>
+                <li>מסאז׳ זוגי בספא נעים באזור</li>
+                <li>אחר הצהריים – סיבוב ב־Jungceylon לקצת מזגן וקניות</li>
+                <li>בערב – טיול על הטיילת מול הים וארוחת ערב רגועה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 10 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 10</span>
+                  <span class="day-location"
+                    >שייט לאיי Phi Phi או מאיה ביי</span
+                  >
+                </div>
+                <div class="day-tagline">ים טורקיז ושנורקלינג</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>יציאה מוקדמת לשייט יום מאורגן</li>
+                <li>עצירה בחופים לבנים ובמפרצים יפים</li>
+                <li>שנורקלינג במים צלולים</li>
+                <li>ארוחת צהריים כלולה בסירה או באחד האיים</li>
+                <li>חזרה למלון אחר הצהריים, מנוחה וארוחת ערב קצרה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 11 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 11</span>
+                  <span class="day-location">יום גמיש בפוקט</span>
+                </div>
+                <div class="day-tagline">
+                  מנוחה או חוף אחר כמו קארון או קאטה
+                </div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר רגוע ללא לו"ז קשיח</li>
+                <li>אפשר לעבור לחוף רגוע יותר כמו קארון או קאטה</li>
+                <li>זמן זוגי בחוף, קריאה או מוזיקה</li>
+                <li>בערב – מסעדה שווה עם נוף לים</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 12 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 12</span>
+                  <span class="day-location">מעבר לקאו לק</span>
+                </div>
+                <div class="day-tagline">שינוי וייב לחופשה יותר שקטה</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Le Meridien Khao Lak
+              </div>
+              <ul>
+                <li>נסיעה מפוקט לקאו לק (כשעה וחצי בערך)</li>
+                <li>צ׳ק אין במלון על החוף</li>
+                <li>בריכה וחוף צמוד למלון</li>
+                <li>ארוחת ערב במלון או במסעדה קטנה ליד</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 13 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 13</span>
+                  <span class="day-location">שייט לאיי סימילאן או סורין</span>
+                </div>
+                <div class="day-tagline">אחד מאזורי השנורקלינג היפים ביותר</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>יציאה לשייט יום מלא</li>
+                <li>
+                  בחירה בין איי Similan לבין Surin בהתאם למה יותר מושך אתכם
+                </li>
+                <li>חופים לבנים, מים בצבע כחול לא הגיוני</li>
+                <li>שנורקלינג מעל שוניות אלמוגים מרשימות</li>
+                <li>חזרה למלון עייפים אבל מרוצים</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 14 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 14</span>
+                  <span class="day-location">יום שקט בקאו לק</span>
+                </div>
+                <div class="day-tagline">בריכה, חוף ועיירה קטנה ונעימה</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר רגוע בחוף או בבריכה</li>
+                <li>טיול קצר למרכז הקטן של קאו לק</li>
+                <li>קפה, נשנושים ושווקים קטנים</li>
+                <li>מסאז׳ נוסף אם מתחשק</li>
+                <li>ערב שקט מול הים</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Week 3 -->
+      <section id="week3" class="week-section">
+        <div class="week-header">
+          <h2 class="week-title">
+            שבוע 3 · קראבי וקוסמוי
+            <span>חופים, טיולים קצרים והרבה בריכה</span>
+          </h2>
+          <div class="week-pills">
+            <div class="week-pill">Sofitel Krabi Phokeethra</div>
+            <div class="week-pill">Amari Koh Samui</div>
+          </div>
+        </div>
+
+        <div class="days-grid">
+          <!-- Day 15 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 15</span>
+                  <span class="day-location">טיול יום ל־Khao Sok</span>
+                </div>
+                <div class="day-tagline">אגם, הרים וירוק בעיניים</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>נסיעה ל־Khao Sok ויציאה לשייט על אגם Cheow Lan</li>
+                <li>נופים של הרים ירוקים ובולדרים שיוצאים מהמים</li>
+                <li>עצירות לצילומים ולתצפיות</li>
+                <li>ארוחת צהריים פשוטה כחלק מהטיול</li>
+                <li>חזרה בערב למלון בקאו לק ומנוחה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 16 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 16</span>
+                  <span class="day-location">מעבר לקראבי</span>
+                </div>
+                <div class="day-tagline">הגעה לריזורט חדש ובריכה ענקית</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Sofitel Krabi Phokeethra
+              </div>
+              <ul>
+                <li>נסיעה מקאו לק לקראבי</li>
+                <li>צ׳ק אין בריזורט המרווח של Sofitel</li>
+                <li>בריכה גדולה, מיטות שיזוף ואווירה רגועה</li>
+                <li>ארוחת ערב בתוך הריזורט או באו נאנג</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 17 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 17</span>
+                  <span class="day-location">טיול ארבעת האיים</span>
+                </div>
+                <div class="day-tagline">שייט בין חופים שונים ליד קראבי</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>שייט מאורגן ל־4 Islands באזור קראבי</li>
+                <li>חופים לבנים, עצירות לשנורקלינג וצילומים</li>
+                <li>טיול קליל וגם יום ים מלא</li>
+                <li>חזרה לריזורט ומנוחה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 18 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 18</span>
+                  <span class="day-location">ריילי ביץ׳</span>
+                </div>
+                <div class="day-tagline">אחד החופים היפים באזור</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>נסיעה בסירה קצרה לריילי ביץ׳</li>
+                <li>רחצה, טיול קצר לאורך החוף</li>
+                <li>זמן לצילומים, קפה או קוקוס</li>
+                <li>חזרה לקראבי לקראת ערב</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 19 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 19</span>
+                  <span class="day-location">יום בריכה ורוגע</span>
+                </div>
+                <div class="day-tagline">פשוט נחים בריזורט</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>יום בלי נסיעות</li>
+                <li>בריכה, ספר, מוזיקה, קוקטיילים קלים</li>
+                <li>מסאז׳ אם מתחשק</li>
+                <li>ערב רגוע עם ארוחה טובה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 20 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 20</span>
+                  <span class="day-location">מעבר לקוסמוי</span>
+                </div>
+                <div class="day-tagline">טיסה לאי חדש ומלון זוגי</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Amari Koh Samui
+              </div>
+              <ul>
+                <li>טיסה מקראבי לקוסמוי (ישירה או דרך חיבור קצר)</li>
+                <li>צ׳ק אין ב־Amari Koh Samui באזור חוף צ׳וונג</li>
+                <li>הליכה קצרה על החוף בשקיעה</li>
+                <li>ארוחת ערב רגועה במרחק הליכה מהמלון</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 21 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 21</span>
+                  <span class="day-location"
+                    >חופים ושוק Fisherman’s Village</span
+                  >
+                </div>
+                <div class="day-tagline">בוקר בים, ערב בשוק</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר בחוף צ׳וונג או בחוף אחר כמו Choeng Mon</li>
+                <li>קפה ליד החוף</li>
+                <li>אחר הצהריים מנוחה במלון</li>
+                <li>ערב בשוק Fisherman’s Village – אוכל רחוב, חנויות וים</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Week 4 -->
+      <section id="week4" class="week-section">
+        <div class="week-header">
+          <h2 class="week-title">
+            שבוע 4 · קופנגן ובנגקוק
+            <span>ריזורט למבוגרים בלבד וסיום עירוני</span>
+          </h2>
+          <div class="week-pills">
+            <div class="week-pill">Explorar Koh Phangan 16+</div>
+            <div class="week-pill">Amari Bangkok</div>
+          </div>
+        </div>
+
+        <div class="days-grid">
+          <!-- Day 22 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 22</span>
+                  <span class="day-location">מפלי Namuang וקוסמוי</span>
+                </div>
+                <div class="day-tagline">טיול טבע קצר באי</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>נסיעה למפלי Namuang או מפל אחר באי</li>
+                <li>הליכה קצרה, בריכה טבעית וצילומים</li>
+                <li>חזרה למלון למנוחה</li>
+                <li>ערב רגוע בחוף או בעיירה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 23 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 23</span>
+                  <span class="day-location">מעבר לקופנגן</span>
+                </div>
+                <div class="day-tagline">מלון למבוגרים בלבד ורוגע מלא</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Explorar Koh Phangan 16+
+              </div>
+              <ul>
+                <li>שייט קצר מקוסמוי לקופנגן</li>
+                <li>צ׳ק אין במלון למבוגרים בלבד</li>
+                <li>בריכה, חוף, זמן זוגי אמיתי</li>
+                <li>ארוחת ערב במסעדה של המלון או לידו</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 24 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 24</span>
+                  <span class="day-location">סיור חופים בקופנגן</span>
+                </div>
+                <div class="day-tagline">Secret Beach, Zen Beach ועוד</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>ביקור ב־Secret Beach לשחייה ולמנוחה</li>
+                <li>עצירה ב־Zen Beach לקראת שקיעה</li>
+                <li>קפה או מיץ באחד מבתי הקפה השקטים</li>
+                <li>חזרה למלון לשקט ובריכה</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 25 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 25</span>
+                  <span class="day-location">יום זוגי נטו</span>
+                </div>
+                <div class="day-tagline">בריכה, ספר, מוזיקה, מסאז׳</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>אין תכנון מחייב</li>
+                <li>בוקר ארוך, ארוחת בוקר מאוחרת</li>
+                <li>בריכה, חוף, זמן שקט רק שלכם</li>
+                <li>מסאז׳ זוגי נוסף אם בא לכם</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 26 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 26</span>
+                  <span class="day-location">שנורקלינג ו־Than Sadet</span>
+                </div>
+                <div class="day-tagline">עוד קצת טבע לפני שחוזרים לעיר</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>שנורקלינג קל בחופים הצפוניים של האי</li>
+                <li>טיול קצר לאזור חוף או מפל Than Sadet</li>
+                <li>אחר הצהריים במלון להתארגנות לקראת מעבר לבנגקוק</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 27 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 27</span>
+                  <span class="day-location">מעבר לבנגקוק וקניון</span>
+                </div>
+                <div class="day-tagline">שינוי וייב לסיום עירוני</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <div class="hotel-tag">
+                <span class="hotel-dot"></span>
+                לינה: Amari Bangkok
+              </div>
+              <ul>
+                <li>שייט חזרה לקוסמוי וטיסה לבנגקוק</li>
+                <li>צ׳ק אין ב־Amari Bangkok</li>
+                <li>אחר הצהריים וערב ב־ICONSIAM או Terminal 21</li>
+                <li>שופינג קל, אוכל טוב ומופעי מים אם זמינים</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Day 28 -->
+          <details class="day-card">
+            <summary>
+              <div class="day-main">
+                <div class="day-line">
+                  <span class="day-number">יום 28</span>
+                  <span class="day-location"
+                    >בנגקוק – מקדשים, קניות וטיסה הביתה</span
+                  >
+                </div>
+                <div class="day-tagline">סגירת מעגל ופרידה מתאילנד</div>
+              </div>
+              <div class="chevron">›</div>
+            </summary>
+            <div class="day-body">
+              <ul>
+                <li>בוקר בבנגקוק – אפשרות לביקור ב־Wat Arun או מקדש נוסף</li>
+                <li>קניות אחרונות אם צריך</li>
+                <li>מסאז׳ אחרון לפני החזרה לארץ</li>
+                <li>חזרה למלון, איסוף מזוודות ויציאה לשדה התעופה</li>
+                <li>טיסה חזרה לישראל</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      נכתב במיוחד עבור שחר ואלינה, כדי שיהיה לכם מסלול אחד מסודר שכל מה שצריך בו
+      זה פשוט לצאת לדרך.
+    </footer>
+
+    <script>
+      const expandAllBtn = document.getElementById("expandAll");
+      const collapseAllBtn = document.getElementById("collapseAll");
+
+      expandAllBtn.addEventListener("click", () => {
+        document.querySelectorAll("details.day-card").forEach((d) => {
+          d.open = true;
+        });
+      });
+
+      collapseAllBtn.addEventListener("click", () => {
+        document.querySelectorAll("details.day-card").forEach((d) => {
+          d.open = false;
+        });
+      });
+    </script>
+  </body>
+</html>
