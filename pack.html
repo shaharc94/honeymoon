@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>רשימת אריזה לתאילנד – שחר ואלינה</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #dbeafe, #f3f4f6 40%, #e5e7eb);
+        padding: 20px 4vw;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      .section {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        margin-bottom: 22px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        width: 100%;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .section:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+      }
+      h2 {
+        font-size: 1.3rem;
+        margin-top: 0;
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+      }
+      input[type="checkbox"] {
+        transform: scale(1.35);
+        margin-left: 8px;
+        accent-color: #2563eb;
+        cursor: pointer;
+      }
+      .section h2 {
+        margin-top: 0;
+      }
+      ul {
+        padding-right: 20px;
+      }
+      .item {
+        padding: 6px 0;
+      }
+      .item label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+      .why {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>רשימת אריזה – תאילנד</h1>
+    <div style="margin-bottom: 20px">
+      <button
+        id="checkAll"
+        style="
+          padding: 10px 18px;
+          border-radius: 10px;
+          border: none;
+          background: #2563eb;
+          color: white;
+          font-size: 0.9rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          cursor: pointer;
+          transition: 0.25s;
+        "
+      >
+        סמן הכל
+      </button>
+      <button
+        id="uncheckAll"
+        style="
+          padding: 10px 18px;
+          border-radius: 10px;
+          border: none;
+          background: #2563eb;
+          color: white;
+          font-size: 0.9rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          cursor: pointer;
+          transition: 0.25s;
+        "
+      >
+        נקה סימון
+      </button>
+    </div>
+    <script>
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.onmouseenter = () => (btn.style.transform = "translateY(-2px)");
+        btn.onmouseleave = () => (btn.style.transform = "translateY(0)");
+      });
+    </script>
+
+    <div class="section">
+      <h2>כללי – חלוקה למזוודות ותיקים</h2>
+      <ul>
+        <li class="item">
+          <label><input type="checkbox" /> מזוודה 20 ק&quot;ג – שחר</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> מזוודה 20 ק&quot;ג – אלינה</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> תיק אישי – שחר</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> תיק אישי – אלינה</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>בגדים</h2>
+      <ul>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> חולצות קלילות
+            <div class="why">
+              חם ולח ברוב המקומות. בגדים מתייבשים מהר.
+            </div></label
+          >
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> שתי חולצות יפות לערבים
+            <div class="why">לארוחות, מסעדות וצילומים.</div></label
+          >
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> מכנסיים קצרים</label>
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> מכנס אחד ארוך
+            <div class="why">לטיסות ולמקומות עם מיזוג חזק.</div></label
+          >
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> בגדי ים (2–3)
+            <div class="why">אתם תהיו בים/בריכה כמעט כל יום.</div></label
+          >
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> הלבשה תחתונה לכמה ימים</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> גרביים</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> כפכפים ונעל נוחה להליכה</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> כובע</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>טואלטיקה</h2>
+      <ul>
+        <li class="item">
+          <label><input type="checkbox" /> מברשות שיניים + משחה</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> דאודורנט</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> שמפו קטן וסבון</label>
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> קרם הגנה SPF50
+            <div class="why">השמש בתאילנד חזקה במיוחד.</div></label
+          >
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> ג׳ל אלוורה
+            <div class="why">לטיפול בעור אחרי שמש.</div></label
+          >
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> תרופות בסיסיות (אקמול, פלסטרים, כדורים
+            לבטן)</label
+          >
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> ספריי נגד יתושים
+            <div class="why">חשוב בעיקר בצפון ובאזורים טרופיים.</div></label
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>אלקטרוניקה</h2>
+      <ul>
+        <li class="item">
+          <label><input type="checkbox" /> מטענים לטלפון</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> מפצל</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> כבל גיבוי</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> מצלמה / גו פרו</label>
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> מטען נייד (Power Bank)
+            <div class="why">טיולי יום ונסיעות ארוכות.</div></label
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>מסמכים חשובים</h2>
+      <ul>
+        <li class="item">
+          <label><input type="checkbox" /> דרכונים בתוקף</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> כרטיסי טיסה</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> ביטוח נסיעות</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> העתק הזמנות מלונות</label>
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> רישיון נהיגה בינלאומי (אם תשכרו
+            רכב/קטנוע)</label
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>תיק אישי לכל אחד</h2>
+      <ul>
+        <li class="item">
+          <label><input type="checkbox" /> אוזניות</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> בקבוק מים</label>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> חטיפים לטיסה</label>
+          <ul
+            style="
+              padding-right: 32px;
+              margin-top: 6px;
+              background: rgba(255, 255, 255, 0.6);
+              border-radius: 10px;
+              padding: 10px 16px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            "
+          >
+            <li class="item">
+              <label><input type="checkbox" /> חטיפי גרנולה</label>
+            </li>
+            <li class="item">
+              <label><input type="checkbox" /> שקית בייגלה קטנה</label>
+            </li>
+            <li class="item">
+              <label><input type="checkbox" /> חטיף שוקולד</label>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> סוודר קל
+            <div class="why">קר מאוד בטיסות ובתחבורה ציבורית.</div></label
+          >
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> טאבלט / ספר</label>
+          <ul
+            style="
+              padding-right: 32px;
+              margin-top: 6px;
+              background: rgba(255, 255, 255, 0.6);
+              border-radius: 10px;
+              padding: 10px 16px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            "
+          >
+            <li class="item">
+              <label><input type="checkbox" /> מטען לטאבלט</label>
+            </li>
+            <li class="item">
+              <label><input type="checkbox" /> ספר פיזי לדרך</label>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <label><input type="checkbox" /> ארנק וכסף מזומן</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>הערות כלליות</h2>
+      <ul>
+        <li class="item">
+          <label><input type="checkbox" /> לשמור מקום פנוי למתנות וקניות</label>
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> לארוז קל – מזג האוויר חם, והכביסה זולה
+            בכל אי</label
+          >
+        </li>
+        <li class="item">
+          <label
+            ><input type="checkbox" /> את הדברים הכבדים לשים למטה במזוודה
+            לחיסכון משקל</label
+          >
+        </li>
+      </ul>
+    </div>
+    <div style="height: 40px"></div>
+    <script>
+      const checkAllBtn = document.getElementById("checkAll");
+      const uncheckAllBtn = document.getElementById("uncheckAll");
+
+      checkAllBtn.onclick = () => {
+        document
+          .querySelectorAll("input[type='checkbox']")
+          .forEach((cb) => (cb.checked = true));
+      };
+
+      uncheckAllBtn.onclick = () => {
+        document
+          .querySelectorAll("input[type='checkbox']")
+          .forEach((cb) => (cb.checked = false));
+      };
+      /* --- Local Storage Save + Load --- */
+
+      // Assign automatic IDs to all checkboxes
+      document
+        .querySelectorAll("input[type='checkbox']")
+        .forEach((cb, index) => {
+          if (!cb.id) cb.id = "cb_" + index;
+        });
+
+      // Load saved state
+      document.querySelectorAll("input[type='checkbox']").forEach((cb) => {
+        const saved = localStorage.getItem(cb.id);
+        if (saved !== null) {
+          cb.checked = saved === "true";
+        }
+      });
+
+      // Save state on change
+      document.querySelectorAll("input[type='checkbox']").forEach((cb) => {
+        cb.addEventListener("change", () => {
+          localStorage.setItem(cb.id, cb.checked);
+        });
+      });
+
+      // When clicking "סמן הכל", also save in storage
+      checkAllBtn.onclick = () => {
+        document.querySelectorAll("input[type='checkbox']").forEach((cb) => {
+          cb.checked = true;
+          localStorage.setItem(cb.id, true);
+        });
+      };
+
+      // When clicking "נקה סימון", also save in storage
+      uncheckAllBtn.onclick = () => {
+        document.querySelectorAll("input[type='checkbox']").forEach((cb) => {
+          cb.checked = false;
+          localStorage.setItem(cb.id, false);
+        });
+      };
+    </script>
+  </body>
+</html>
